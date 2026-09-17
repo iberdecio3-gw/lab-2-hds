@@ -2,7 +2,7 @@
 title: "Lab2"
 author: "Isa Berdecio"
 date: "2026-09-16"
-output: html_document
+output: pdf
 ---
 
 ```{r setup, include=FALSE}
