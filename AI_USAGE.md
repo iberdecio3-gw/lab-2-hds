@@ -1,7 +1,7 @@
 # AI Usage
 
 # Prompt to ChatGPT:
-'''
+'''text
 why is my dataset producing one single column?
 
 url = ("https://www.ncbi.nlm.nih.gov/geo/download/"
