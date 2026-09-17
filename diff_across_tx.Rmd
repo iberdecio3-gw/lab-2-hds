@@ -55,7 +55,7 @@ log_data <- log2(treatments + 1)
 
 ```
 
-#How much does each gene change across treatments?
+# How much does each gene change across treatments?
 
 ```{r}
 
