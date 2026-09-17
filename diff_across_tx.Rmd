@@ -87,7 +87,11 @@ barplot(
 )
 ```
 
-```{r}
-print("Several genes showed distinct differences in expression across treatments. Some genes like SNORD54 werer highly expressed in untreated cells only, while other like FTL and SNORD25 showed stronger expression in the 3 applied treatment groups. This pattern suggests that treatments have distinct effects on gene expression.")
-```
+# Interpretation
+
+Several genes showed distinct differences in expression across treatments. Some genes like SNORD54 werer highly expressed in untreated cells only, while other like FTL and SNORD25 showed stronger expression in the 3 applied treatment groups. This pattern suggests that treatments have distinct effects on gene expression.
+
+# Comparison of Python vs. R
+
+The R was faster for me. I am more familiar with Markdown and Knitting, and am more well versed in data visualization using R. Additionally, it easier to preview the dataset in RStudio instead of Jupyter, making it more straightforward to see what was needed for transformation. 
 
