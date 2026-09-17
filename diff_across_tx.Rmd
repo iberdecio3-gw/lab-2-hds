@@ -69,7 +69,7 @@ top10 <- log_data[top10_index, ]
 gene_names <- fpkm$gene_short_name[top10_index]
 ```
 
-# Plor changes
+# Plot changes
 ```{r}
 barplot(
   t(as.matrix(top10)),
@@ -85,5 +85,9 @@ barplot(
     "Dex + Albuterol"
   )
 )
+```
+
+```{r}
+print("Several genes showed distinct differences in expression across treatments. Some genes like SNORD54 werer highly expressed in untreated cells only, while other like FTL and SNORD25 showed stronger expression in the 3 applied treatment groups. This pattern suggests that treatments have distinct effects on gene expression.")
 ```
 
