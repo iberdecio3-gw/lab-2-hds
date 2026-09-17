@@ -50,3 +50,5 @@ Output: Lab2.html
 To re-run this experiment open the run file in RStudio.
 Select **Knit**
 
+## *Comparison of R vs Python is included at the end of both codes as a markdown.* 
+
