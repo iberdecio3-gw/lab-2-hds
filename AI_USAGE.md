@@ -1,16 +1,16 @@
 # AI Usage
 
 # Prompt to ChatGPT:
-'''text
+```text
 why is my dataset producing one single column?
 
 url = ("https://www.ncbi.nlm.nih.gov/geo/download/"
        "?acc=GSE52778&format=file&file=GSE52778_All_Sample_FPKM_Matrix.txt.gz")
 fpkm = pd.read_csv(url, sep="\t", compression="gzip")
-'''
+```
 
 # ChatGPT response:
-'''
+```
 Your dataset is probably producing one single column because R or Python is using the wrong delimiter when it reads the file.
 In Python/pandas, use:
 
@@ -25,15 +25,15 @@ sep=r"\s+" means “split on one or more whitespace characters.”
 
 A good check is:
 print(fpkm.columns.tolist())
-'''
+```
 
 # Prompt to ChatGPT:
-'''
+```
 How do i plot the differences in expression in python the same way I did in R?
-'''
+```
 
 # ChatGPT response:
-'''
+```
 You can mirror the R grouped bar plot pretty closely with pandas + matplotlib.
 
 Assuming you already created top10 like before:
@@ -55,4 +55,4 @@ plt.legend([
 ])
 plt.tight_layout()
 plt.show()
-'''
+```
