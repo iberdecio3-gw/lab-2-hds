@@ -1,0 +1,89 @@
+---
+title: "Lab2"
+author: "Isa Berdecio"
+date: "2026-09-16"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Data Import
+
+```{r}
+url <- paste0("https://www.ncbi.nlm.nih.gov/geo/download/",
+              "?acc=GSE52778&format=file&file=GSE52778_All_Sample_FPKM_Matrix.txt.gz")
+
+# Download the file
+download.file(
+  url,
+  "GSE52778_All_Sample_FPKM_Matrix.txt.gz",
+  mode = "wb"
+)
+
+# Read the compressed tab-delimited file
+fpkm <- read.table(
+  gzfile("GSE52778_All_Sample_FPKM_Matrix.txt.gz"),
+  header = TRUE,
+  sep = "",
+  check.names = FALSE
+)
+
+```
+
+# Normalize Data
+
+```{r}
+
+#log transform to standardize for comparison of all 4 treatments (dexamethasone, 
+#albuterol, dexamethasone+albuterol or  left untreated)
+
+
+#columns of interest
+treatments <- fpkm[, c(
+  "Untreated_FPKM",
+  "Dex_FPKM",
+  "Alb_FPKM",
+  "Alb_Dex_FPKM"
+)]
+
+
+#log transformation
+log_data <- log2(treatments + 1)
+
+
+```
+
+#How much does each gene change across treatments?
+
+```{r}
+
+#how much each gene changes across the 4 treatments
+gene_range <- apply(log_data, 1, function(x) max(x) - min(x))
+
+#top 10 genes differences
+top10_index <- order(gene_range, decreasing = TRUE)[1:10]
+
+top10 <- log_data[top10_index, ]
+gene_names <- fpkm$gene_short_name[top10_index]
+```
+
+# Plor changes
+```{r}
+barplot(
+  t(as.matrix(top10)),
+  beside = TRUE,
+  names.arg = gene_names,
+  las = 2,
+  ylab = "log2(FPKM + 1)",
+  main = "Genes with Largest Expression Differences Across Treatments",
+  legend.text = c(
+    "Untreated",
+    "Dexamethasone",
+    "Albuterol",
+    "Dex + Albuterol"
+  )
+)
+```
+
