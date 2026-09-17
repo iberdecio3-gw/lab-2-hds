@@ -32,6 +32,8 @@ The analysis is as follows:
 4. Identify genes with the largest expression differences across treatments
 5. Visualize the results
 
+*To import data without running the full code, use the import_data files*
+
 ## Jupyter Notebook
 
 Run file: diff_across_tx.ipynb
